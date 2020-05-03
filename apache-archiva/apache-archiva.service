@@ -1,0 +1,13 @@
+[Unit]
+Description=Apache Archiva Service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/apache-archiva
+ExecStart=/usr/local/apache-archiva/current/bin/archiva start
+ExecStop=/usr/local/apache-archiva/current/bin/archiva stop
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target

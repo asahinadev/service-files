@@ -1,0 +1,15 @@
+[Unit]
+Description=GitLab Service
+After=syslog.target network.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/sysconfig/gitlabee
+ExecStart=/bin/gitlab-ctl  start
+ExecStop=/bin/gitlab-ctl   stop
+ExecReload=/bin/gitlab-ctl reconrfigure
+RemainAfterExit=yes
+
+
+[Install]
+WantedBy=multi-user.target

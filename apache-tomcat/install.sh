@@ -18,5 +18,7 @@ tar -xzf ${TAR}
 ln -snf  ${DIR} current
 rm -f ${TAR}
 
-sed -i "s/port=\"8080\"/port=\"${PORT}\"/g" ${DIR}/conf/server.xml | grep port
-sed -i "s/port=\"8009\"/port=\"${AJP}\"/g"  ${DIR}/conf/server.xml | grep port
+sed -i "s/port=\"8080\"/port=\"${PORT}\"/g" ${DIR}/conf/server.xml 
+sed -i "s/port=\"8009\"/port=\"${AJP}\"/g"  ${DIR}/conf/server.xml 
+ed -i '$ i \ \ \ \ <Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="fa
+lse"/>' context.xml

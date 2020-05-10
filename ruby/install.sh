@@ -25,6 +25,9 @@ make
 make test
 make install
 
+DD=/usr/local/bin
+SD=/usr/local/ruby/${DIR}/bin
+
 alternatives \
  --install  ${DD}/ruby   ruby        ${SD}/ruby   ${PRIORITY} \
  --slave    ${DD}/bundle ruby-bundle ${SD}/bundle \

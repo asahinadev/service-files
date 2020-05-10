@@ -27,30 +27,8 @@ tar xzvf redmine-4.1.1.tar.gz
 mkdir -p /var/redmine
 cp -pr redmine-4.1.1 /var/redmine/
 cd /var/redmine/redmine-4.1.1/
-
-touch config/database.yml 
-cat - << EOS > config/database.yml 
-production:
-  adapter:  "mysql2"
-  database: "redmine"
-  host:     "localhost"
-  username: "redmine"
-  password: "redmine"
-  encoding: "utf8"
-EOS
-
-touch config/configuration.yml
-cat - << EOS > config/configuration.yml
-production:
-  email_delivery:
-    delivery_method: :smtp
-    smtp_settings:
-      address: "smtp.sendgrid.net"
-      port:     587
-      domain:  "redmine.mirageworld.jp"
-
-  rmagick_font_path: /usr/share/fonts/ipaexfont-gothic/ipaexg.ttf
-EOS
+sh setup-database.sh
+sh setup-configuration.sh
 
 bundle install --without development test --path vendor/bundle
 bundle install --without development test rmagick

@@ -2,20 +2,16 @@
 
 DIR=${DIR:=/var/redmine/current}
 
-cat << EOS > /usr/lib/systemd/system/redmine-unicorn.service
+cat << EOS > /usr/lib/systemd/system/redmine.service
 [Unit]
-Description=Redmine Unicorn Server
-After=mysqld
+Description=Redmine erver
+After=mysqld.service
 
 [Service]
 WorkingDirectory=${DIR}
 Environment=RAILS_ENV=production
-SyslogIdentifier=redmine-unicorn
-PIDFile=${DIR}/tmp/pids/unicorn.pid
 
-ExecStart=/usr/local/bin/bundle exec "unicorn_rails -c config/unicorn.rb -E production" 
-ExecStop=/usr/bin/kill -QUIT $MAINPID
-ExecReload=/bin/kill   -USR2 $MAINPID
+ExecStart=/usr/local/bin/bundle exec rails server webrick -e production
 
 [Install]
 WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=${DIR:/var/redmine/current}
+DIR=${DIR:=/var/redmine/current}
 
 cat << EOS > /usr/lib/systemd/system/redmine-unicorn.service
 [Unit]

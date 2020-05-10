@@ -20,5 +20,5 @@ rm -f ${TAR}
 
 sed -i "s/port=\"8080\"/port=\"${PORT}\"/g" ${DIR}/conf/server.xml 
 sed -i "s/port=\"8009\"/port=\"${AJP}\"/g"  ${DIR}/conf/server.xml 
-ed -i '$ i \ \ \ \ <Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="fa
+sed -i '$ i \ \ \ \ <Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="fa
 lse"/>' context.xml

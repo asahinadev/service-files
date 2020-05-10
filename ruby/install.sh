@@ -5,7 +5,7 @@ MJ=${MJ:="2.7"}
 VER=${VER:="2.7.1"}
 TAR="ruby-${VER}.tar.gz"
 DIR="ruby-${VER}"
-RUBY_UR=RUBY_UR:="https://cache.ruby-lang.org/pub/ruby/${MJ}/${TAR}"}
+RUBY_URL=${RUBY_URL:="https://cache.ruby-lang.org/pub/ruby/${MJ}/${TAR}"}
 PRIORITY=${PRIORITY:=1}
 
 # 前提インストール

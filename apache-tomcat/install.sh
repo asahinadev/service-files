@@ -16,3 +16,5 @@ wget $URL
 tar -xzvf $TAR
 rm  -rfv  $TAR
 ln -snf $PWD/$DIR $PWD/current
+
+wget https://raw.githubusercontent.com/devel-Numasawa/service-files/master/apache-tomcat/${MJ}/server.xml -O current/conf/server.xml

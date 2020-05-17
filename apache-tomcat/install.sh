@@ -13,7 +13,6 @@ cd       /usr/local/tomcat
 
 # ダウンロード & インストール
 wget $URL
-tar -xzfv ${TAR}
-ln -snf   ${DIR} current
-rm -f     ${TAR}
-
+tar -xzvf $TAR
+rm  -rfv  $TAR
+ln -snf $PWD/$DIR $PWD/current

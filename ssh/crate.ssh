@@ -1,10 +1,14 @@
 #!/bin/sh
 
 ID_RSA=${ID_RSA:="id_rsa"}
+
+# id_rsa の作成
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/${ID_RSA} -N ""
 
-# id_rsa の場合のみ 鍵認証を変更
+# 認証情報の作成 (id_rsaのみ）
 if test "$ID_RSA" = "id_rsa" ; then
 cp -pv .ssh/id_rsa.pub .ssh/authorized_keys
 fi
 
+# pem 形式 の作成
+openssl rsa -in ~/.ssh/${ID_RSA} -outform pem > ~/.ssh/${ID_RSA}.pem

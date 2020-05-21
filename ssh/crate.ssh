@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ID_RSA=${ID_RSA:="id_rsa"}
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/${ID_RSA} -N ""
+
+# id_rsa の場合のみ 鍵認証を変更
+if test "$ID_RSA" = "id_rsa" ; then
+cp -pv .ssh/id_rsa.pub .ssh/authorized_keys
+fi
+
